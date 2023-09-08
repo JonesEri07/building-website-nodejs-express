@@ -24,18 +24,39 @@ app.set('view engine', 'ejs');
 
 app.set('views', 'views');
 
-app.use(express.static('static'));
+app.use(express.static('public'));
 
-app.use(['*'], (req, res, next) => {
-    console.log('hi i was used');
-    next();
+
+// app.use((req, res, next) => {
+//     res.locals.someVal = 'test'; // variables available to all routes that use this middleware (right now that would be all routes)
+//     next();
+// });
+
+app.use(async (req, res, next) => {
+    try {
+        const names = await speakerService.getNames();
+        res.locals.speakerNames = names;
+        next();
+    } catch (err) {
+        next(err);
+    }
 })
+
+// set during start up and available for whole life cycle
+app.locals.siteName = 'CIRE';
 
 app.use('/', indexRoutes({
     feedbackService,
     speakerService
 }));
 
+app.use((req, res) => {
+    res.status(400).render('404');
+});
+
+app.use((error, req, res, next) => {
+    res.status(500).render('500');
+});
 
 app.listen(PORT, () => {
     

@@ -1,0 +1,9 @@
+<article class="speakerslist jumbotron d-none d-sm-block">
+    <div class="container">
+        <div class="row">
+            <% speakers.forEach(speaker => { %>
+                <%- include('./speakerSpotLight', { speaker }) %>
+            <% }) %>
+        </div>
+    </div>
+</article>
