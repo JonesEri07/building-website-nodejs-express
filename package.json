@@ -1,14 +1,29 @@
 {
   "name": "roux-academy",
+  "type": "module",
   "version": "1.0.0",
   "description": "Exercise files for my course Building a Website with Node.js and Express",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon --experimental-json-modules --exec babel-node server.js"
   },
-  "keywords": [],
-  "author": "Daniel Khan",
-  "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {}
+  "author": "Eric Jones",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.15",
+    "@babel/core": "^7.22.15",
+    "@babel/node": "^7.22.15",
+    "@babel/preset-env": "^7.22.15",
+    "eslint": "^8.48.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3"
+  }
 }

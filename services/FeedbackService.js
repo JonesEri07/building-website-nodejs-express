@@ -1,5 +1,8 @@
-const fs = require('fs');
-const util = require('util');
+// const fs = require('fs');
+// const util = require('util');
+
+import fs from 'fs';
+import util from 'util';
 
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
@@ -46,4 +49,4 @@ class FeedbackService {
   }
 }
 
-module.exports = FeedbackService;
+export default FeedbackService;

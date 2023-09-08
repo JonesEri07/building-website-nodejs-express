@@ -1,5 +1,8 @@
-const fs = require("fs");
-const util = require("util");
+// const fs = require("fs");
+// const util = require("util");
+
+import fs from 'fs';
+import util from 'util';
 
 /**
  * We want to use async/await with fs.readFile - util.promisfy gives us that
@@ -117,4 +120,4 @@ class SpeakerService {
   }
 }
 
-module.exports = SpeakerService;
+export default SpeakerService;
