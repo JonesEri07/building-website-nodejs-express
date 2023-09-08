@@ -1,4 +1,6 @@
 import express from 'express';
+import cookieSession from 'cookie-session';
+
 import indexRoutes from './routes/index.js';
 
 import FeedbackService from './services/FeedbackService.js';
@@ -10,6 +12,13 @@ const speakerService = new SpeakerService('./data/speakers.json');
 const app = express();
 
 const PORT = 3000;
+
+app.set('trust proxy', 1); // makes express trust cookies passed through proxy
+
+app.use(cookieSession({
+    name: 'session',
+    keys: ['Gijw8924kjf', 'ajdf9249898*(8f2j'],
+}));
 
 app.set('view engine', 'ejs');
 
