@@ -1,10 +1,11 @@
 import express from 'express';
 import cookieSession from 'cookie-session';
-
+import bodyParser from 'body-parser';
 import indexRoutes from './routes/index.js';
 
 import FeedbackService from './services/FeedbackService.js';
 import SpeakerService from './services/SpeakerService.js';
+
 
 const feedbackService = new FeedbackService('./data/feedback.json');
 const speakerService = new SpeakerService('./data/speakers.json');
@@ -19,6 +20,9 @@ app.use(cookieSession({
     name: 'session',
     keys: ['Gijw8924kjf', 'ajdf9249898*(8f2j'],
 }));
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');
 
